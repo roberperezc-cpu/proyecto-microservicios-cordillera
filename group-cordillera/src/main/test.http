@@ -1,0 +1,37 @@
+### Probar Escenario de ÉXITO (Producto con Stock)
+POST http://localhost:8081/api/v1/sales
+Content-Type: application/json
+
+{
+  "codigoBoleta": "BOL-2026-X01",
+  "sucursal": "Sucursal Centro",
+  "total": 25990.00,
+  "canal": "POS",
+  "detalles": [
+    {
+      "productoId": 1,
+      "cantidad": 2,
+      "precioUnitario": 12995.00
+    }
+  ]
+}
+
+###
+
+### Probar Escenario de ERROR (Producto ID 99 Sin Stock)
+POST http://localhost:8081/api/v1/sales
+Content-Type: application/json
+
+{
+  "codigoBoleta": "BOL-2026-X02",
+  "sucursal": "Sucursal Centro",
+  "total": 15000.00,
+  "canal": "ECOMMERCE",
+  "detalles": [
+    {
+      "productoId": 99,
+      "cantidad": 1,
+      "precioUnitario": 15000.00
+    }
+  ]
+}
